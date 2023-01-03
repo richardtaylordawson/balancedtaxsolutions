@@ -1,16 +1,17 @@
 {
-  "name": "tailwindui-salient",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+  "name": "balancedtaxsolutions",
+  "version": "1.0.0",
+  "author": "richardtaylordawson",
+  "description": "Website for Balanced Tax Solutions giving customers easy access to information they need, appointment booker and necessary",
+  "homepage": "https://www.balancedtaxsolutions.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardtaylordawson/balancedtaxsolutions.git"
   },
-  "browserslist": "defaults, not ie <= 11",
+  "bugs": {
+    "url": "https://github.com/richardtaylordawson/balancedtaxsolutions/issues"
+  },
   "dependencies": {
-    "@headlessui/react": "^1.7.2",
     "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.12",
     "clsx": "^1.2.1",
@@ -26,5 +27,12 @@
     "eslint-config-next": "13.0.2",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.13"
+  },
+  "scripts": {
+    "build": "next build",
+    "develop": "next dev",
+    "start": "next start",
+    "line": "next lint",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   }
 }

@@ -1,35 +1,22 @@
-# Salient
+# Balanced Tax Solutions - ![PWA Shields](https://www.pwa-shields.com/1.0.0/series/classic/solid/purple.svg)
 
-Salient is a [Tailwind UI](https://tailwindui.com) site template built using [Tailwind CSS](https://tailwindcss.com) and [Next.js](https://nextjs.org).
+> Website for Balanced Tax Solutions giving customers easy access to information they need, appointment booker and necessary
 
-## Getting started
+## Run Project
 
-To get started with this template, first install the npm dependencies:
-
-```bash
-npm install
+```shell
+$ yarn
+$ yarn develop
 ```
 
-Next, run the development server:
+## Deployment
 
-```bash
-npm run dev
-```
-
-Finally, open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
-
-## Customizing
-
-You can start editing this template by modifying the files in the `/src` folder. The site will auto-update as you edit these files.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6c24ba85-eba5-485f-ae06-53b4424105d9/deploy-status)](https://app.netlify.com/sites/balancedtaxsolutions/deploys)
 
 ## License
 
-This site template is a commercial product and is licensed under the [Tailwind UI license](https://tailwindui.com/license).
+[Tailwind UI license](https://tailwindui.com/license)
 
-## Learn more
+## View Project
 
-To learn more about the technologies used in this site template, see the following resources:
-
-- [Tailwind CSS](https://tailwindcss.com/docs) - the official Tailwind CSS documentation
-- [Next.js](https://nextjs.org/docs) - the official Next.js documentation
-- [Headless UI](https://headlessui.dev) - the official Headless UI documentation
+<https://www.balancedtaxsolutions.com>

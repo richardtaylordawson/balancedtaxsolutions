@@ -1,86 +1,167 @@
-import Image from 'next/image'
+import { Fragment } from 'react'
+import { Popover, Transition } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import KyleeImage from '@/images/avatars/kylee.png'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
+const navigation = [
+  { name: 'About', href: '#' },
+  { name: 'Services & Pricing', href: '#' },
+  { name: 'Testimonials', href: '#' },
+  { name: 'Contact', href: '#' },
+]
 
-export function Hero() {
+export default function Hero() {
   return (
-    <Container className="pt-8 pb-16 text-center lg:pt-12">
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
-        Taxes{' '}
-        <span className="relative whitespace-nowrap text-yellow-400">
+    <div className="relative overflow-hidden bg-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
           <svg
-            aria-hidden="true"
-            viewBox="0 0 418 42"
-            className="absolute top-2/3 left-0 h-[0.58em] w-full fill-neutral-300/70"
+            className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
+            fill="currentColor"
+            viewBox="0 0 100 100"
             preserveAspectRatio="none"
-          >
-            <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z" />
-          </svg>
-          <span className="relative">made simple</span>
-        </span>{' '}
-        for personal or small businesses.
-      </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        Taxes and tax law is tough. We make the opposite trade-off, and make
-        sure you won't get audited.
-      </p>
-      <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/register">Book Appointment</Button>
-        <Button
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          variant="outline"
-        >
-          <svg
             aria-hidden="true"
-            className="h-3 w-3 flex-none fill-yellow-400 group-active:fill-current"
           >
-            <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
+            <polygon points="50,0 100,0 50,100 0,100" />
           </svg>
-          <span className="ml-3">Watch video</span>
-        </Button>
-      </div>
-      <div className="mt-16 lg:mt-20">
-        <p className="font-display text-base text-slate-900">
-          Trusted by these six companies so far
-        </p>
-        <ul
-          role="list"
-          className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
-        >
-          {[
-            [
-              { name: 'Transistor', logo: logoTransistor },
-              { name: 'Tuple', logo: logoTuple },
-              { name: 'StaticKit', logo: logoStaticKit },
-            ],
-            [
-              { name: 'Mirage', logo: logoMirage },
-              { name: 'Laravel', logo: logoLaravel },
-              { name: 'Statamic', logo: logoStatamic },
-            ],
-          ].map((group, groupIndex) => (
-            <li key={groupIndex}>
-              <ul
-                role="list"
-                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
+
+          <Popover>
+            <div className="relative px-6 pt-6 lg:px-8">
+              <nav
+                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
+                aria-label="Global"
               >
-                {group.map((company) => (
-                  <li key={company.name} className="flex">
-                    <Image src={company.logo} alt={company.name} unoptimized />
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
+                <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
+                  <div className="flex w-full items-center justify-between md:w-auto">
+                    <a href="#">
+                      <span className="sr-only">Your Company</span>
+                      <img
+                        alt="Your Company"
+                        className="h-8 w-auto sm:h-10"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                      />
+                    </a>
+                    <div className="-mr-2 flex items-center md:hidden">
+                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span className="sr-only">Open main menu</span>
+                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                      </Popover.Button>
+                    </div>
+                  </div>
+                </div>
+                <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="font-medium text-gray-500 hover:text-gray-900"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                  <a
+                    href="#"
+                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </nav>
+            </div>
+
+            <Transition
+              as={Fragment}
+              enter="duration-150 ease-out"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="duration-100 ease-in"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Popover.Panel
+                focus
+                className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
+              >
+                <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+                  <div className="flex items-center justify-between px-5 pt-4">
+                    <div>
+                      <img
+                        className="h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-mr-2">
+                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                        <span className="sr-only">Close main menu</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                      </Popover.Button>
+                    </div>
+                  </div>
+                  <div className="space-y-1 px-2 pt-2 pb-3">
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                  <a
+                    href="#"
+                    className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </Popover>
+
+          <main className="mx-auto mt-10 max-w-7xl px-6 sm:mt-12 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <div className="sm:text-center lg:text-left">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+                <span className="block xl:inline">Simplified Taxes.</span>{' '}
+                <span className="block text-indigo-600 xl:inline">
+                  Affordable Prices.
+                </span>
+              </h1>
+              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+                Personalized tax preparation services that fit your
+                <br />
+                individual and business needs.
+              </p>
+              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                <div className="rounded-md shadow">
+                  <a
+                    href="#"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+                  >
+                    Book Appointment
+                  </a>
+                </div>
+                {/* <div className="mt-3 sm:mt-0 sm:ml-3">
+                  <a
+                    href="#"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
+                  >
+                    Live demo
+                  </a>
+                </div> */}
+              </div>
+            </div>
+          </main>
+        </div>
       </div>
-    </Container>
+      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
+          src={KyleeImage}
+          alt=""
+        />
+      </div>
+    </div>
   )
 }

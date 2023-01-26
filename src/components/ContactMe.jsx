@@ -3,39 +3,38 @@ import { useState } from 'react'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import Modal from './Modal'
 import { NetlifyForm, Honeypot } from 'react-netlify-forms'
+import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function ContactMe() {
-  const [open, setOpen] = useState(false)
-
-  function encode(data) {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&')
-  }
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': event.target.getAttribute('name'),
-        ...event.target,
-      }),
-    })
-      .then(() => setOpen(true))
-      .catch((error) => alert(error))
-  }
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
+  const [showErrorModal, setShowErrorModal] = useState(false)
 
   return (
     <>
       <Modal
         heading="Success!"
         message="I will respond as quickly as possible."
-        showModal={open}
-        onClose={() => setOpen(false)}
+        showModal={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        icon={
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+            <CheckIcon className="h-6 w-6 text-green-600" aria-hidden="true" />
+          </div>
+        }
+      />
+      <Modal
+        heading="Error!"
+        message="Please try again later."
+        showModal={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        icon={
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-red-100">
+            <ExclamationTriangleIcon
+              className="h-6 w-6 text-red-600"
+              aria-hidden="true"
+            />
+          </div>
+        }
       />
       <div id="contact-me" className="bg-gray-100">
         <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
@@ -233,17 +232,12 @@ export default function ContactMe() {
                   action="/thanks"
                   honeypotName="bot-field"
                   className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+                  onSuccess={() => setShowSuccessModal(true)}
+                  onError={() => setShowErrorModal(true)}
                 >
-                  {({ handleChange, success, error }) => (
+                  {({ handleChange }) => (
                     <>
                       <Honeypot />
-                      {success && <p>Thanks for contacting us!</p>}
-                      {error && (
-                        <p>
-                          Sorry, we could not reach our servers. Please try
-                          again later.
-                        </p>
-                      )}
                       <input
                         type="hidden"
                         name="form-name"
@@ -263,6 +257,7 @@ export default function ContactMe() {
                             id="first-name"
                             autoComplete="given-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -280,6 +275,7 @@ export default function ContactMe() {
                             id="last-name"
                             autoComplete="family-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -297,6 +293,7 @@ export default function ContactMe() {
                             type="email"
                             autoComplete="email"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -317,6 +314,7 @@ export default function ContactMe() {
                             autoComplete="tel"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             aria-describedby="phone"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -333,6 +331,7 @@ export default function ContactMe() {
                             name="subject"
                             id="subject"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            onChange={handleChange}
                           />
                         </div>
                       </div>
@@ -353,6 +352,7 @@ export default function ContactMe() {
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             aria-describedby="message"
                             defaultValue={''}
+                            onChange={handleChange}
                           />
                         </div>
                       </div>

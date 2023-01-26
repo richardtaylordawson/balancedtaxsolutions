@@ -1,167 +1,293 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import KyleeImage from '@/images/avatars/kylee.png'
+import {
+  Bars3Icon,
+  BookmarkSquareIcon,
+  XMarkIcon,
+  QuestionMarkCircleIcon,
+} from '@heroicons/react/24/outline'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Logo from '@/images/logo-reverse.png'
+import Image from 'next/image'
 
 const navigation = [
-  { name: 'About', href: '#' },
-  { name: 'Services & Pricing', href: '#' },
-  { name: 'Testimonials', href: '#' },
-  { name: 'Contact', href: '#' },
+  {
+    name: 'About Me',
+    href: 'about-me',
+  },
+  {
+    name: 'Services & Pricing',
+    href: '#services-and-pricing',
+  },
+  {
+    name: 'Testimonials',
+    href: '#testimonials',
+  },
+  {
+    name: 'FAQs',
+    href: '#faqs',
+  },
+  {
+    name: 'Contact Me',
+    href: '#contact-me',
+  },
 ]
+
+const resources = [
+  {
+    name: "Where's My Refund?",
+    description: 'Check the current status of your refund.',
+    href: '#',
+    icon: QuestionMarkCircleIcon,
+  },
+  {
+    name: 'Organizers',
+    description:
+      'Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website',
+    href: '#',
+    icon: BookmarkSquareIcon,
+  },
+]
+
+const classNames = (...classes) => {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function Hero() {
   return (
-    <div className="relative overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl">
-        <div className="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
-          <svg
-            className="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
-            fill="currentColor"
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            <polygon points="50,0 100,0 50,100 0,100" />
-          </svg>
+    <div className="relative bg-gray-50">
+      <Popover className="relative bg-white shadow">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex items-center justify-between py-6 md:justify-start md:space-x-8">
+            <div className="flex items-center justify-start">
+              <a href="#" className="mr-8">
+                <span className="sr-only">Balanced Tax Solutions</span>
+                <Image className="" src={Logo} alt="" width={75} />
+              </a>
+              <Popover.Group as="nav" className="hidden space-x-8 lg:flex">
+                {navigation.map((current) => (
+                  <a
+                    href={current.href}
+                    className="text-base font-medium text-gray-500 hover:text-gray-900"
+                  >
+                    {current.name}
+                  </a>
+                ))}
 
-          <Popover>
-            <div className="relative px-6 pt-6 lg:px-8">
-              <nav
-                className="relative flex items-center justify-between sm:h-10 lg:justify-start"
-                aria-label="Global"
-              >
-                <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
-                  <div className="flex w-full items-center justify-between md:w-auto">
-                    <a href="#">
-                      <span className="sr-only">Your Company</span>
-                      <img
-                        alt="Your Company"
-                        className="h-8 w-auto sm:h-10"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                      />
-                    </a>
-                    <div className="-mr-2 flex items-center md:hidden">
-                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                        <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                <Popover className="relative">
+                  {({ open }) => (
+                    <>
+                      <Popover.Button
+                        className={classNames(
+                          open ? 'text-gray-900' : 'text-gray-500',
+                          'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2'
+                        )}
+                      >
+                        <span>Tools</span>
+                        <ChevronDownIcon
+                          className={classNames(
+                            open ? 'text-gray-600' : 'text-gray-400',
+                            'ml-2 h-5 w-5 group-hover:text-gray-500'
+                          )}
+                          aria-hidden="true"
+                        />
                       </Popover.Button>
-                    </div>
+
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-200"
+                        enterFrom="opacity-0 trantahiti-y-1"
+                        enterTo="opacity-100 trantahiti-y-0"
+                        leave="transition ease-in duration-150"
+                        leaveFrom="opacity-100 trantahiti-y-0"
+                        leaveTo="opacity-0 trantahiti-y-1"
+                      >
+                        <Popover.Panel className="-trantahiti-x-1/2 absolute left-1/2 z-10 mt-3 w-screen max-w-md transform px-2 sm:px-0">
+                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                            <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                              {resources.map((item) => (
+                                <a
+                                  key={item.name}
+                                  href={item.href}
+                                  className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                                >
+                                  <item.icon
+                                    className="h-6 w-6 flex-shrink-0 text-tahiti-600"
+                                    aria-hidden="true"
+                                  />
+                                  <div className="ml-4">
+                                    <p className="text-base font-medium text-gray-900">
+                                      {item.name}
+                                    </p>
+                                    <p className="mt-1 text-sm text-gray-500">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </Popover.Panel>
+                      </Transition>
+                    </>
+                  )}
+                </Popover>
+              </Popover.Group>
+            </div>
+            <div className="-my-2 -mr-2 lg:hidden">
+              <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-tahiti-500">
+                <span className="sr-only">Open menu</span>
+                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              </Popover.Button>
+            </div>
+            <div className="hidden items-center justify-end lg:flex lg:w-0 lg:flex-1">
+              <a
+                href="#"
+                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-tahiti-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-tahiti-700"
+              >
+                Book Appointment
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <Transition
+          as={Fragment}
+          enter="duration-200 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Popover.Panel
+            focus
+            className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition lg:hidden"
+          >
+            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="px-5 pt-5 pb-6">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <Image className="" src={Logo} alt="" width={75} />
+                  </div>
+                  <div className="-mr-2">
+                    <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-tahiti-500">
+                      <span className="sr-only">Close menu</span>
+                      <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </Popover.Button>
                   </div>
                 </div>
-                <div className="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
-                  {navigation.map((item) => (
+              </div>
+              <div className="space-y-6 py-6 px-5">
+                <div className="grid gap-y-4 gap-x-8">
+                  {navigation.map((current) => (
+                    <a
+                      href={current.href}
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    >
+                      {current.name}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="space-y-6 py-6 px-5">
+                <div className="grid gap-y-4 gap-x-8">
+                  {resources.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
-                      className="font-medium text-gray-500 hover:text-gray-900"
+                      className="flex text-base font-medium text-gray-900 hover:text-gray-700"
                     >
-                      {item.name}
+                      <item.icon
+                        className="h-6 w-6 flex-shrink-0 text-tahiti-600"
+                        aria-hidden="true"
+                      />
+                      <div className="ml-4">
+                        <p className="text-base font-medium text-gray-900">
+                          {item.name}
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">
+                          {item.description}
+                        </p>
+                      </div>
                     </a>
                   ))}
-                  <a
-                    href="#"
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
-                  >
-                    Contact Us
-                  </a>
                 </div>
-              </nav>
-            </div>
-
-            <Transition
-              as={Fragment}
-              enter="duration-150 ease-out"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="duration-100 ease-in"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Popover.Panel
-                focus
-                className="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden"
-              >
-                <div className="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-                  <div className="flex items-center justify-between px-5 pt-4">
-                    <div>
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt=""
-                      />
-                    </div>
-                    <div className="-mr-2">
-                      <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                        <span className="sr-only">Close main menu</span>
-                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                      </Popover.Button>
-                    </div>
-                  </div>
-                  <div className="space-y-1 px-2 pt-2 pb-3">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div>
-                  <a
-                    href="#"
-                    className="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100"
-                  >
-                    Contact Us
-                  </a>
-                </div>
-              </Popover.Panel>
-            </Transition>
-          </Popover>
-
-          <main className="mx-auto mt-10 max-w-7xl px-6 sm:mt-12 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-            <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Simplified Taxes.</span>{' '}
-                <span className="block text-indigo-600 xl:inline">
-                  Affordable Prices.
-                </span>
-              </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-                Personalized tax preparation services that fit your
-                <br />
-                individual and business needs.
-              </p>
-              <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                <div className="rounded-md shadow">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Book Appointment
-                  </a>
-                </div>
-                {/* <div className="mt-3 sm:mt-0 sm:ml-3">
-                  <a
-                    href="#"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Live demo
-                  </a>
-                </div> */}
               </div>
             </div>
-          </main>
+          </Popover.Panel>
+        </Transition>
+      </Popover>
+
+      <main className="lg:relative">
+        <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+          <svg
+            class="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+            viewBox="0 0 1155 678"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+              fill-opacity=".3"
+              d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+            />
+            <defs>
+              <linearGradient
+                id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+                x1="1155.49"
+                x2="-78.208"
+                y1=".177"
+                y2="474.645"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#9089FC"></stop>
+                <stop offset="1" stop-color="#FF80B5"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-      </div>
-      <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
-          src={KyleeImage}
-          alt=""
-        />
-      </div>
+        <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
+          <div className="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              <span className="block xl:inline">Simplified Taxes.</span>{' '}
+              <span className="block text-tahiti-600 xl:inline">
+                Affordable Prices.
+              </span>
+            </h1>
+            <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
+              Personalized tax preparation services that fit your
+              <br />
+              individual and business needs.
+            </p>
+            <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
+              <div className="rounded-md shadow">
+                <a
+                  href="#"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-8 py-3 text-base font-medium text-white hover:bg-tahiti-700 md:py-4 md:px-10 md:text-lg"
+                >
+                  Book Appointment
+                </a>
+              </div>
+              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                <a
+                  href="#"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-tahiti-600 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
+            alt=""
+          />
+        </div>
+      </main>
     </div>
   )
 }

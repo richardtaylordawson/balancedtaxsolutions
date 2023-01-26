@@ -1,16 +1,13 @@
 import Head from 'next/head'
 
-import { CallToAction } from '@/components/CallToAction'
-import Faqs from '@/components/Faqs'
-import Footer  from '@/components/Footer'
-import { Header } from '@/components/Header'
+import HeaderBanner from '@/components/HeaderBanner'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Pricing  from '@/components/Pricing'
-import Contact from '@/components/Contact'
-import { PrimaryFeatures } from '@/components/PrimaryFeatures'
-import { SecondaryFeatures } from '@/components/SecondaryFeatures'
-import { Testimonials } from '@/components/Testimonials'
+import ServicesAndPricing from '@/components/ServicesAndPricing'
+import Testimonials from '@/components/Testimonials'
+import Faqs from '@/components/Faqs'
+import ContactUs from '@/components/ContactUs'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -23,12 +20,13 @@ export default function Home() {
         />
       </Head>
       <main>
+        {/* <HeaderBanner /> */}
         <Hero />
         <About />
-        <Pricing />
+        <ServicesAndPricing />
         <Testimonials />
         <Faqs />
-        <Contact />
+        <ContactUs />
       </main>
       <Footer />
     </>

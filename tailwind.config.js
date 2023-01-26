@@ -20,12 +20,24 @@ module.exports = {
       '9xl': ['8rem', { lineHeight: '1' }],
     },
     extend: {
+      colors: {
+        tahiti: {
+          100: '#FFFFFF',
+          200: '#F9FDFD',
+          300: '#DAF0F3',
+          400: '#BBE4EA',
+          500: '#9CD8E0',
+          600: '#71C7D3',
+          700: '#47B6C5',
+          800: '#3294A1',
+          900: '#256D76',
+        },
+      },
       borderRadius: {
         '4xl': '2rem',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
-        display: ['Lexend', ...defaultTheme.fontFamily.sans],
+        sans: ['Poppins', ...defaultTheme.fontFamily.sans],
       },
       maxWidth: {
         '2xl': '40rem',

@@ -1,40 +1,91 @@
+/* This example requires Tailwind CSS v3.0+ */
+import { Disclosure } from '@headlessui/react'
+import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+
 const faqs = [
   {
     id: 1,
-    question: "What's the best thing about Switzerland?",
+    question: 'How can I schedule an appointment?',
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      '<a>asdfasf</a>Click for a link to a contact form, or text 801-332-9177 to set up an in person or virtual appointment',
   },
-  // More questions...
+  {
+    id: 2,
+    question: 'What kinds of appointments do you offer?',
+    answer:
+      'We can meet in person at my home office in Syracuse, Utah or we can do a virtual appointment using Google Meet',
+  },
+  {
+    id: 3,
+    question:
+      'What does a tax appointment with Balanced Tax Solutions look like?',
+    answer:
+      'We work around the client and their preferences.  If you prefer to meet in person and bring all of your documents to get it done at one time, you can usually plan on spending less than an hour or so for tax preparation and future planning.  If you prefer to drop documents off and come back later or even send them digitally, I have a secure portal where you can upload documents and answer questions.  I also use this secure portal if you prefer to have everything uploaded a few days before we set up a virtual meeting where we can then review the return and make sure we maximize deductions and answer any questions.',
+  },
+  {
+    id: 4,
+    question: 'What do I need for my appointment?',
+    answer:
+      "Link to tax organizer for new clients.  Existing clients, feel free to send me a text or email asking for the emailed Link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
+  },
+  {
+    id: 5,
+    question: 'What are your prices?',
+    answer: 'Link to pricing tab',
+  },
+  {
+    id: 6,
+    question: 'Where is my refund?',
+    answer: 'Link to IRS.gov',
+  },
 ]
 
 export default function Faqs() {
   return (
-    <section aria-labelledby="faq-heading" className="bg-white">
-      <div className="max-2xl mx-auto py-16 px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="max-w-xl">
-          <h2 id="faq-heading" className="text-2xl font-bold tracking-tight text-gray-900">
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-24 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+          <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-base text-gray-500">
-            Questions. Frequently asked ones. Plus our answers. That's how FAQs work. If you can't find what you're
-            looking for, you can always{' '}
-            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-              send us an email
-            </a>{' '}
-            with your enquiry.
-          </p>
+          <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+            {faqs.map((faq) => (
+              <Disclosure as="div" key={faq.question} className="pt-6">
+                {({ open }) => (
+                  <>
+                    <dt>
+                      <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                        <span className="text-base font-semibold leading-7">
+                          {faq.question}
+                        </span>
+                        <span className="ml-6 flex h-7 items-center">
+                          {open ? (
+                            <PlusSmallIcon
+                              className="h-6 w-6"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <MinusSmallIcon
+                              className="h-6 w-6"
+                              aria-hidden="true"
+                            />
+                          )}
+                        </span>
+                      </Disclosure.Button>
+                    </dt>
+                    <Disclosure.Panel as="dd" className="mt-2 pr-12">
+                      <p
+                        className="text-base leading-7 text-gray-600"
+                        dangerouslySetInnerHTML={{ __html: faq.answer }}
+                      ></p>
+                    </Disclosure.Panel>
+                  </>
+                )}
+              </Disclosure>
+            ))}
+          </dl>
         </div>
-
-        <dl className="mt-12 grid grid-cols-1 gap-y-10 sm:mt-16 md:grid-cols-2 md:gap-x-6 lg:grid-cols-3">
-          {faqs.map((faq) => (
-            <div key={faq.id}>
-              <dt className="text-base font-medium text-gray-900">{faq.question}</dt>
-              <dd className="mt-3 text-sm text-gray-500">{faq.answer}</dd>
-            </div>
-          ))}
-        </dl>
       </div>
-    </section>
+    </div>
   )
 }

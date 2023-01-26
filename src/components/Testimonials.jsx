@@ -78,19 +78,19 @@ function QuoteIcon(props) {
   )
 }
 
-export function Testimonials() {
+export default function Testimonials() {
   return (
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32"
+      className="bg-gray-100 py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
             Loved by our clients.
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
+          <p className="mt-4 text-lg tracking-tight">
             We make it easy to get the best return possible and a fraction of
             the cost to our competitors and self serving tax software.
           </p>
@@ -104,23 +104,23 @@ export function Testimonials() {
               <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
                 {column.map((testimonial, testimonialIndex) => (
                   <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
-                      <QuoteIcon className="absolute top-6 left-6 fill-slate-100" />
+                    <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-tahiti-900/10">
+                      <QuoteIcon className="absolute top-6 left-6 fill-tahiti-100" />
                       <blockquote className="relative">
-                        <p className="text-lg tracking-tight text-slate-900">
+                        <p className="text-lg tracking-tight text-tahiti-900">
                           {testimonial.content}
                         </p>
                       </blockquote>
-                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
+                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-tahiti-100 pt-6">
                         <div>
-                          <div className="font-display text-base text-slate-900">
+                          <div className="text-base text-tahiti-900">
                             {testimonial.author.name}
                           </div>
-                          <div className="mt-1 text-sm text-slate-500">
+                          <div className="mt-1 text-sm text-tahiti-500">
                             {testimonial.author.role}
                           </div>
                         </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
+                        <div className="bg-tahiti-50 overflow-hidden rounded-full">
                           <Image
                             className="h-14 w-14 object-cover"
                             src={testimonial.author.image}

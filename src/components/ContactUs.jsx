@@ -1,30 +1,19 @@
-/*
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
-export default function Contact() {
+export default function ContactUs() {
   return (
-    <div className="bg-gray-100">
+    <div id="contact-us" className="bg-gray-100">
       <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
         <div className="relative bg-white shadow-xl">
           <h2 className="sr-only">Contact us</h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3">
             {/* Contact information */}
-            <div className="relative overflow-hidden bg-indigo-700 py-10 px-6 sm:px-10 xl:p-12">
-              <div className="pointer-events-none absolute inset-0 sm:hidden" aria-hidden="true">
+            <div className="relative overflow-hidden bg-tahiti-700 py-10 px-6 sm:px-10 xl:p-12">
+              <div
+                className="pointer-events-none absolute inset-0 sm:hidden"
+                aria-hidden="true"
+              >
                 <svg
                   className="absolute inset-0 h-full w-full"
                   width={343}
@@ -120,30 +109,40 @@ export default function Contact() {
                   </defs>
                 </svg>
               </div>
-              <h3 className="text-lg font-medium text-white">Contact information</h3>
-              <p className="mt-6 max-w-3xl text-base text-indigo-50">
-                Nullam risus blandit ac aliquam justo ipsum. Quam mauris volutpat massa dictumst amet. Sapien tortor
-                lacus arcu.
-              </p>
+              <h3 className="text-lg font-medium text-white">
+                Contact information
+              </h3>
               <dl className="mt-8 space-y-6">
                 <dt>
                   <span className="sr-only">Phone number</span>
                 </dt>
-                <dd className="flex text-base text-indigo-50">
-                  <PhoneIcon className="h-6 w-6 flex-shrink-0 text-indigo-200" aria-hidden="true" />
-                  <span className="ml-3">+1 (555) 123-4567</span>
+                <dd className="flex text-base text-white">
+                  <PhoneIcon
+                    className="h-6 w-6 flex-shrink-0 text-tahiti-200"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-3">
+                    <a href="tel:8013329177">+1 (801) 332-9177</a>
+                  </span>
                 </dd>
                 <dt>
                   <span className="sr-only">Email</span>
                 </dt>
-                <dd className="flex text-base text-indigo-50">
-                  <EnvelopeIcon className="h-6 w-6 flex-shrink-0 text-indigo-200" aria-hidden="true" />
-                  <span className="ml-3">support@workcation.com</span>
+                <dd className="flex text-base text-white">
+                  <EnvelopeIcon
+                    className="h-6 w-6 flex-shrink-0 text-tahiti-200"
+                    aria-hidden="true"
+                  />
+                  <span className="ml-3">
+                    <a href="mailto:kylee@balancedtaxutah.com">
+                      kylee@balancedtaxutah.com
+                    </a>
+                  </span>
                 </dd>
               </dl>
               <ul role="list" className="mt-8 flex space-x-12">
                 <li>
-                  <a className="text-indigo-200 hover:text-indigo-100" href="#">
+                  <a className="text-tahiti-200 hover:text-tahiti-100" href="#">
                     <span className="sr-only">Facebook</span>
                     <svg
                       width={24}
@@ -162,8 +161,8 @@ export default function Contact() {
                   </a>
                 </li>
                 <li>
-                  <a className="text-indigo-200 hover:text-indigo-100" href="#">
-                    <span className="sr-only">GitHub</span>
+                  <a className="text-tahiti-200 hover:text-tahiti-100" href="#">
+                    <span className="sr-only">Instagram</span>
                     <svg
                       width={24}
                       height={24}
@@ -174,27 +173,8 @@ export default function Contact() {
                       aria-hidden="true"
                     >
                       <path
-                        d="M11.999 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.386.6.11.819-.26.819-.578 0-.284-.01-1.04-.017-2.04-3.337.724-4.042-1.61-4.042-1.61-.545-1.386-1.332-1.755-1.332-1.755-1.09-.744.082-.73.082-.73 1.205.086 1.838 1.238 1.838 1.238 1.07 1.833 2.81 1.304 3.493.996.109-.775.419-1.303.762-1.603C7.145 17 4.343 15.97 4.343 11.373c0-1.31.468-2.382 1.236-3.22-.124-.304-.536-1.524.118-3.176 0 0 1.007-.323 3.3 1.23.956-.266 1.983-.4 3.003-.404 1.02.005 2.046.138 3.005.404 2.29-1.553 3.296-1.23 3.296-1.23.655 1.652.243 2.872.12 3.176.77.838 1.233 1.91 1.233 3.22 0 4.61-2.806 5.624-5.478 5.921.43.37.814 1.103.814 2.223 0 1.603-.015 2.898-.015 3.291 0 .321.217.695.825.578C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12.001-12"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a className="text-indigo-200 hover:text-indigo-100" href="#">
-                    <span className="sr-only">Twitter</span>
-                    <svg
-                      width={24}
-                      height={24}
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M7.548 22.501c9.056 0 14.01-7.503 14.01-14.01 0-.213 0-.425-.015-.636A10.02 10.02 0 0024 5.305a9.828 9.828 0 01-2.828.776 4.94 4.94 0 002.165-2.724 9.867 9.867 0 01-3.127 1.195 4.929 4.929 0 00-8.391 4.491A13.98 13.98 0 011.67 3.9a4.928 4.928 0 001.525 6.573A4.887 4.887 0 01.96 9.855v.063a4.926 4.926 0 003.95 4.827 4.917 4.917 0 01-2.223.084 4.93 4.93 0 004.6 3.42A9.88 9.88 0 010 20.289a13.941 13.941 0 007.548 2.209"
-                        fill="currentColor"
+                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                        clipRule="currentColor"
                       />
                     </svg>
                   </a>
@@ -204,10 +184,19 @@ export default function Contact() {
 
             {/* Contact form */}
             <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-              <h3 className="text-lg font-medium text-gray-900">Send us a message</h3>
-              <form action="#" method="POST" className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+              <h3 className="text-lg font-medium text-gray-900">
+                Send me a message
+              </h3>
+              <form
+                action="#"
+                method="POST"
+                className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+              >
                 <div>
-                  <label htmlFor="first-name" className="block text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="first-name"
+                    className="block text-sm font-medium text-gray-900"
+                  >
                     First name
                   </label>
                   <div className="mt-1">
@@ -216,12 +205,15 @@ export default function Contact() {
                       name="first-name"
                       id="first-name"
                       autoComplete="given-name"
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="last-name" className="block text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="last-name"
+                    className="block text-sm font-medium text-gray-900"
+                  >
                     Last name
                   </label>
                   <div className="mt-1">
@@ -230,12 +222,15 @@ export default function Contact() {
                       name="last-name"
                       id="last-name"
                       autoComplete="family-name"
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                     />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-900"
+                  >
                     Email
                   </label>
                   <div className="mt-1">
@@ -244,18 +239,18 @@ export default function Contact() {
                       name="email"
                       type="email"
                       autoComplete="email"
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                     />
                   </div>
                 </div>
                 <div>
                   <div className="flex justify-between">
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-900">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-900"
+                    >
                       Phone
                     </label>
-                    <span id="phone-optional" className="text-sm text-gray-500">
-                      Optional
-                    </span>
                   </div>
                   <div className="mt-1">
                     <input
@@ -263,13 +258,16 @@ export default function Contact() {
                       name="phone"
                       id="phone"
                       autoComplete="tel"
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                      aria-describedby="phone-optional"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                      aria-describedby="phone"
                     />
                   </div>
                 </div>
                 <div className="sm:col-span-2">
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-900">
+                  <label
+                    htmlFor="subject"
+                    className="block text-sm font-medium text-gray-900"
+                  >
                     Subject
                   </label>
                   <div className="mt-1">
@@ -277,26 +275,26 @@ export default function Contact() {
                       type="text"
                       name="subject"
                       id="subject"
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                     />
                   </div>
                 </div>
                 <div className="sm:col-span-2">
                   <div className="flex justify-between">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-900">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-900"
+                    >
                       Message
                     </label>
-                    <span id="message-max" className="text-sm text-gray-500">
-                      Max. 500 characters
-                    </span>
                   </div>
                   <div className="mt-1">
                     <textarea
                       id="message"
                       name="message"
                       rows={4}
-                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                      aria-describedby="message-max"
+                      className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                      aria-describedby="message"
                       defaultValue={''}
                     />
                   </div>
@@ -304,7 +302,7 @@ export default function Contact() {
                 <div className="sm:col-span-2 sm:flex sm:justify-end">
                   <button
                     type="submit"
-                    className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+                    className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-tahiti-700 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2 sm:w-auto"
                   >
                     Submit
                   </button>

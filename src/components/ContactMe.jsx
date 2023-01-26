@@ -14,22 +14,39 @@ import {
 } from 'react-netlify-forms'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import MaskedInput from 'react-text-mask'
 import Modal from './Modal'
 
 export default function ContactMe() {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [showErrorModal, setShowErrorModal] = useState(false)
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+  const phoneNumberMask = [
+    '(',
+    /[1-9]/,
+    /\d/,
+    /\d/,
+    ')',
+    ' ',
+    /\d/,
+    /\d/,
+    /\d/,
+    '-',
+    /\d/,
+    /\d/,
+    /\d/,
+    /\d/,
+  ]
+
+  const phoneRegExp = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/
 
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required('First name is required'),
     lastName: Yup.string().required('Last name is required'),
     email: Yup.string().required('Email is required').email('Email is invalid'),
     phone: Yup.string()
-      .required('Phone number is required')
-      .matches(phoneRegExp, 'Phone number is not valid'),
+      .required('Phone is required')
+      .matches(phoneRegExp, 'Phone is not valid'),
     subject: Yup.string().required('Subject is required'),
     message: Yup.string().required('Message is required'),
   })
@@ -297,7 +314,11 @@ export default function ContactMe() {
                             name="firstName"
                             id="firstName"
                             autoComplete="given-name"
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.firstName &&
+                              errors.firstName &&
+                              'border-red-500'
+                            }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.firstName}
@@ -322,7 +343,11 @@ export default function ContactMe() {
                             name="lastName"
                             id="lastName"
                             autoComplete="family-name"
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.lastName &&
+                              errors.lastName &&
+                              'border-red-500'
+                            }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.lastName}
@@ -347,7 +372,9 @@ export default function ContactMe() {
                             name="email"
                             type="email"
                             autoComplete="email"
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.email && errors.email && 'border-red-500'
+                            }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
@@ -369,13 +396,16 @@ export default function ContactMe() {
                           </label>
                         </div>
                         <div className="mt-1">
-                          <input
+                          <MaskedInput
                             type="text"
                             name="phone"
                             id="phone"
                             autoComplete="tel"
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.phone && errors.phone && 'border-red-500'
+                            }`}
                             aria-describedby="phone"
+                            mask={phoneNumberMask}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.phone}
@@ -399,7 +429,11 @@ export default function ContactMe() {
                             type="text"
                             name="subject"
                             id="subject"
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.subject &&
+                              errors.subject &&
+                              'border-red-500'
+                            }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.subject}
@@ -425,7 +459,11 @@ export default function ContactMe() {
                             id="message"
                             name="message"
                             rows={4}
-                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
+                              touched.message &&
+                              errors.message &&
+                              'border-red-500'
+                            }`}
                             aria-describedby="message"
                             onChange={handleChange}
                             onBlur={handleBlur}

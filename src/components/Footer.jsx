@@ -1,4 +1,4 @@
-// TODO Hrefs for Social Buttons
+// TODO Finish links to social platforms
 const navigation = {
   social: [
     {

@@ -1,13 +1,66 @@
 // TODO Finish links to social platforms
 import { useState } from 'react'
-import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  CheckIcon,
+  ExclamationTriangleIcon,
+} from '@heroicons/react/24/outline'
+import {
+  useNetlifyForm,
+  NetlifyFormProvider,
+  NetlifyFormComponent,
+  Honeypot,
+} from 'react-netlify-forms'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import Modal from './Modal'
-import { NetlifyForm, Honeypot } from 'react-netlify-forms'
-import { CheckIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 
 export default function ContactMe() {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [showErrorModal, setShowErrorModal] = useState(false)
+
+  const phoneRegExp =
+    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
+
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required('First name is required'),
+    lastName: Yup.string().required('Last name is required'),
+    email: Yup.string().required('Email is required').email('Email is invalid'),
+    phone: Yup.string()
+      .required('Phone number is required')
+      .matches(phoneRegExp, 'Phone number is not valid'),
+    subject: Yup.string().required('Subject is required'),
+    message: Yup.string().required('Message is required'),
+  })
+
+  const netlify = useNetlifyForm({
+    name: 'Contact Me',
+    action: '/thanks',
+    honeypotName: 'bot-field',
+    onSuccess: () => {
+      setShowSuccessModal(true)
+    },
+    onError: () => {
+      setShowErrorModal(true)
+    },
+  })
+  const { handleSubmit, handleChange, handleBlur, touched, errors, values } =
+    useFormik({
+      initialValues: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      },
+      validationSchema,
+      onSubmit: (values, { resetForm }) => {
+        netlify.handleSubmit(null, values)
+        resetForm({ values: '' })
+      },
+    })
 
   return (
     <>
@@ -227,56 +280,58 @@ export default function ContactMe() {
                 <h3 className="text-lg font-medium text-gray-900">
                   Send me a message
                 </h3>
-                <NetlifyForm
-                  name="Contact Me"
-                  action="/thanks"
-                  honeypotName="bot-field"
-                  className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-                  onSuccess={() => setShowSuccessModal(true)}
-                  onError={() => setShowErrorModal(true)}
-                >
-                  {({ handleChange }) => (
-                    <>
+                <NetlifyFormProvider {...netlify}>
+                  <NetlifyFormComponent onSubmit={handleSubmit}>
+                    <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                       <Honeypot />
-                      <input
-                        type="hidden"
-                        name="form-name"
-                        value="contact-me"
-                      />
                       <div>
                         <label
-                          htmlFor="first-name"
+                          htmlFor="firstNam"
                           className="block text-sm font-medium text-gray-900"
                         >
-                          First name
+                          First name <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                           <input
                             type="text"
-                            name="first-name"
-                            id="first-name"
+                            name="firstName"
+                            id="firstName"
                             autoComplete="given-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.firstName}
                           />
+                          {touched.firstName && errors.firstName ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.firstName}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div>
                         <label
-                          htmlFor="last-name"
+                          htmlFor="lastName"
                           className="block text-sm font-medium text-gray-900"
                         >
-                          Last name
+                          Last name <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                           <input
                             type="text"
-                            name="last-name"
-                            id="last-name"
+                            name="lastName"
+                            id="lastName"
                             autoComplete="family-name"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.lastName}
                           />
+                          {touched.lastName && errors.lastName ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.lastName}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div>
@@ -284,7 +339,7 @@ export default function ContactMe() {
                           htmlFor="email"
                           className="block text-sm font-medium text-gray-900"
                         >
-                          Email
+                          Email <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                           <input
@@ -294,7 +349,14 @@ export default function ContactMe() {
                             autoComplete="email"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
                           />
+                          {touched.email && errors.email ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.email}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div>
@@ -303,7 +365,7 @@ export default function ContactMe() {
                             htmlFor="phone"
                             className="block text-sm font-medium text-gray-900"
                           >
-                            Phone
+                            Phone <span className="text-red-500">*</span>
                           </label>
                         </div>
                         <div className="mt-1">
@@ -315,7 +377,14 @@ export default function ContactMe() {
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             aria-describedby="phone"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.phone}
                           />
+                          {touched.phone && errors.phone ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.phone}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div className="sm:col-span-2">
@@ -323,7 +392,7 @@ export default function ContactMe() {
                           htmlFor="subject"
                           className="block text-sm font-medium text-gray-900"
                         >
-                          Subject
+                          Subject <span className="text-red-500">*</span>
                         </label>
                         <div className="mt-1">
                           <input
@@ -332,7 +401,14 @@ export default function ContactMe() {
                             id="subject"
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.subject}
                           />
+                          {touched.subject && errors.subject ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.subject}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div className="sm:col-span-2">
@@ -341,7 +417,7 @@ export default function ContactMe() {
                             htmlFor="message"
                             className="block text-sm font-medium text-gray-900"
                           >
-                            Message
+                            Message <span className="text-red-500">*</span>
                           </label>
                         </div>
                         <div className="mt-1">
@@ -351,9 +427,15 @@ export default function ContactMe() {
                             rows={4}
                             className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
                             aria-describedby="message"
-                            defaultValue={''}
                             onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.message}
                           />
+                          {touched.message && errors.message ? (
+                            <p className="mt-1 text-xs text-red-500">
+                              {errors.message}
+                            </p>
+                          ) : null}
                         </div>
                       </div>
                       <div className="sm:col-span-2 sm:flex sm:justify-end">
@@ -364,9 +446,9 @@ export default function ContactMe() {
                           Submit
                         </button>
                       </div>
-                    </>
-                  )}
-                </NetlifyForm>
+                    </div>
+                  </NetlifyFormComponent>
+                </NetlifyFormProvider>
               </div>
             </div>
           </div>

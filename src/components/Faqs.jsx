@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v3.0+ */
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
 
@@ -7,7 +6,7 @@ const faqs = [
     id: 1,
     question: 'How can I schedule an appointment?',
     answer:
-      '<a>asdfasf</a>Click for a link to a contact form, or text 801-332-9177 to set up an in person or virtual appointment',
+      'You can either <a href="#contact-me" class="text-tahiti-800 hover:text-tahiti-600">contact me</a> below, or text <a href="tel:801-332-9177" class="text-tahiti-800 hover:text-tahiti-600">801-332-9177</a> to set up an in person or virtual appointment',
   },
   {
     id: 2,
@@ -20,23 +19,19 @@ const faqs = [
     question:
       'What does a tax appointment with Balanced Tax Solutions look like?',
     answer:
-      'We work around the client and their preferences.  If you prefer to meet in person and bring all of your documents to get it done at one time, you can usually plan on spending less than an hour or so for tax preparation and future planning.  If you prefer to drop documents off and come back later or even send them digitally, I have a secure portal where you can upload documents and answer questions.  I also use this secure portal if you prefer to have everything uploaded a few days before we set up a virtual meeting where we can then review the return and make sure we maximize deductions and answer any questions.',
+      'We work around the client and their preferences. If you prefer to meet in person and bring all of your documents to get it done at one time, you can usually plan on spending less than an hour or so for tax preparation and future planning. If you prefer to drop documents off and come back later or even send them digitally, I have a secure portal where you can upload documents and answer questions. I also use this secure portal if you prefer to have everything uploaded a few days before we set up a virtual meeting where we can then review the return and make sure we maximize deductions and answer any questions.',
   },
   {
     id: 4,
     question: 'What do I need for my appointment?',
     answer:
-      "Link to tax organizer for new clients.  Existing clients, feel free to send me a text or email asking for the emailed Link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
+      "If you are a new client that has not previously filed your returns with me, please fill out the <a class='text-tahiti-800 hover:text-tahiti-600' href='TODO'>following</a>. For existing clients, feel free to send me a text or email asking for the emailed Link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
   },
   {
     id: 5,
-    question: 'What are your prices?',
-    answer: 'Link to pricing tab',
-  },
-  {
-    id: 6,
     question: 'Where is my refund?',
-    answer: 'Link to IRS.gov',
+    answer:
+      'You can check the status of your refund by <a class="text-tahiti-800 hover:text-tahiti-600" target="_blank" href="https://www.irs.gov/refunds">visiting the IRS</a>',
   },
 ]
 
@@ -60,12 +55,12 @@ export default function Faqs() {
                         </span>
                         <span className="ml-6 flex h-7 items-center">
                           {open ? (
-                            <PlusSmallIcon
+                            <MinusSmallIcon
                               className="h-6 w-6"
                               aria-hidden="true"
                             />
                           ) : (
-                            <MinusSmallIcon
+                            <PlusSmallIcon
                               className="h-6 w-6"
                               aria-hidden="true"
                             />

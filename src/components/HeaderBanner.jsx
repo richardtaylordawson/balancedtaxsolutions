@@ -29,10 +29,10 @@ export default function Headerbanner() {
           </div>
           <div className="order-3 mt-2 w-full flex-shrink-0 sm:order-2 sm:mt-0 sm:ml-3 sm:w-auto">
             <a
-              href="#contact-us"
+              href="#contact-me"
               className="hover:bg-tahiti-50 flex items-center justify-center rounded-md border border-transparent bg-white px-4 py-2 text-sm font-medium text-tahiti-600 shadow-sm"
             >
-              Contact Us
+              Contact Me
             </a>
           </div>
           <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">

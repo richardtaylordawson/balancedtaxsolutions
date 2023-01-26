@@ -6,7 +6,7 @@ import About from '@/components/About'
 import ServicesAndPricing from '@/components/ServicesAndPricing'
 import Testimonials from '@/components/Testimonials'
 import Faqs from '@/components/Faqs'
-import ContactUs from '@/components/ContactUs'
+import ContactMe from '@/components/ContactMe'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
         <ServicesAndPricing />
         <Testimonials />
         <Faqs />
-        <ContactUs />
+        <ContactMe />
       </main>
       <Footer />
     </>

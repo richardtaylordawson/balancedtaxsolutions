@@ -1,8 +1,8 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
-export default function ContactUs() {
+export default function ContactMe() {
   return (
-    <div id="contact-us" className="bg-gray-100">
+    <div id="contact-me" className="bg-gray-100">
       <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
         <div className="relative bg-white shadow-xl">
           <h2 className="sr-only">Contact us</h2>
@@ -189,6 +189,7 @@ export default function ContactUs() {
               </h3>
               <form
                 action="#"
+                data-netlify="true"
                 method="POST"
                 className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
               >

@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import Modal from './Modal'
+import { NetlifyForm, Honeypot } from 'react-netlify-forms'
 
 export default function ContactMe() {
   const [open, setOpen] = useState(false)
@@ -227,130 +228,145 @@ export default function ContactMe() {
                 <h3 className="text-lg font-medium text-gray-900">
                   Send me a message
                 </h3>
-                <form
-                  data-netlify="true"
-                  method="POST"
-                  name="contact-me"
-                  onSubmit={handleSubmit}
+                <NetlifyForm
+                  name="Contact Me"
+                  action="/thanks"
+                  honeypotName="bot-field"
                   className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
                 >
-                  <input type="hidden" name="form-name" value="contact-me" />
-                  <div>
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium text-gray-900"
-                    >
-                      First name
-                    </label>
-                    <div className="mt-1">
+                  {({ handleChange, success, error }) => (
+                    <>
+                      <Honeypot />
+                      {success && <p>Thanks for contacting us!</p>}
+                      {error && (
+                        <p>
+                          Sorry, we could not reach our servers. Please try
+                          again later.
+                        </p>
+                      )}
                       <input
-                        type="text"
-                        name="first-name"
-                        id="first-name"
-                        autoComplete="given-name"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                        type="hidden"
+                        name="form-name"
+                        value="contact-me"
                       />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-medium text-gray-900"
-                    >
-                      Last name
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        type="text"
-                        name="last-name"
-                        id="last-name"
-                        autoComplete="family-name"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-900"
-                    >
-                      Email
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between">
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-gray-900"
-                      >
-                        Phone
-                      </label>
-                    </div>
-                    <div className="mt-1">
-                      <input
-                        type="text"
-                        name="phone"
-                        id="phone"
-                        autoComplete="tel"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
-                        aria-describedby="phone"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label
-                      htmlFor="subject"
-                      className="block text-sm font-medium text-gray-900"
-                    >
-                      Subject
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        type="text"
-                        name="subject"
-                        id="subject"
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <div className="flex justify-between">
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-gray-900"
-                      >
-                        Message
-                      </label>
-                    </div>
-                    <div className="mt-1">
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
-                        aria-describedby="message"
-                        defaultValue={''}
-                      />
-                    </div>
-                  </div>
-                  <div className="sm:col-span-2 sm:flex sm:justify-end">
-                    <button
-                      type="submit"
-                      className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-tahiti-700 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2 sm:w-auto"
-                    >
-                      Submit
-                    </button>
-                  </div>
-                </form>
+                      <div>
+                        <label
+                          htmlFor="first-name"
+                          className="block text-sm font-medium text-gray-900"
+                        >
+                          First name
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            type="text"
+                            name="first-name"
+                            id="first-name"
+                            autoComplete="given-name"
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="last-name"
+                          className="block text-sm font-medium text-gray-900"
+                        >
+                          Last name
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            type="text"
+                            name="last-name"
+                            id="last-name"
+                            autoComplete="family-name"
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="block text-sm font-medium text-gray-900"
+                        >
+                          Email
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autoComplete="email"
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="phone"
+                            className="block text-sm font-medium text-gray-900"
+                          >
+                            Phone
+                          </label>
+                        </div>
+                        <div className="mt-1">
+                          <input
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            autoComplete="tel"
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            aria-describedby="phone"
+                          />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label
+                          htmlFor="subject"
+                          className="block text-sm font-medium text-gray-900"
+                        >
+                          Subject
+                        </label>
+                        <div className="mt-1">
+                          <input
+                            type="text"
+                            name="subject"
+                            id="subject"
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                          />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2">
+                        <div className="flex justify-between">
+                          <label
+                            htmlFor="message"
+                            className="block text-sm font-medium text-gray-900"
+                          >
+                            Message
+                          </label>
+                        </div>
+                        <div className="mt-1">
+                          <textarea
+                            id="message"
+                            name="message"
+                            rows={4}
+                            className="block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500"
+                            aria-describedby="message"
+                            defaultValue={''}
+                          />
+                        </div>
+                      </div>
+                      <div className="sm:col-span-2 sm:flex sm:justify-end">
+                        <button
+                          type="submit"
+                          className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-tahiti-700 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2 sm:w-auto"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </NetlifyForm>
               </div>
             </div>
           </div>

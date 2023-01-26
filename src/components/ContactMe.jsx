@@ -188,7 +188,6 @@ export default function ContactMe() {
                 Send me a message
               </h3>
               <form
-                action="#"
                 data-netlify="true"
                 method="POST"
                 className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"

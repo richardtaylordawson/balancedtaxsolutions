@@ -1,8 +1,9 @@
+// TODO Features for packages
 import { CheckIcon } from '@heroicons/react/20/solid'
 
 const tiers = [
   {
-    name: 'Personal',
+    name: 'Personal<br/>&nbsp',
     href: '#',
     price: '75 - 200',
     includedFeatures: [
@@ -11,7 +12,7 @@ const tiers = [
     ],
   },
   {
-    name: 'Sole Proprietor (Schedule C)',
+    name: 'Sole Proprietor<br/>(Schedule C)',
     href: '#',
     price: '150-275',
     includedFeatures: [
@@ -21,7 +22,7 @@ const tiers = [
     ],
   },
   {
-    name: 'Partnership (Multimember LLC)',
+    name: 'Partnership<br/>(Multimember LLC)',
     href: '#',
     price: 300,
     includedFeatures: [
@@ -32,7 +33,7 @@ const tiers = [
     ],
   },
   {
-    name: 'S-Corp',
+    name: 'S-Corp<br/>&nbsp',
     href: '#',
     price: 350,
     includedFeatures: [
@@ -40,16 +41,13 @@ const tiers = [
       'Orci neque eget pellentesque.',
       'Donec mauris sit in eu tincidunt etiam.',
       'Faucibus volutpat magna.',
-      'Id sed tellus in varius quisque.',
-      'Risus egestas faucibus.',
-      'Risus cursus ullamcorper.',
     ],
   },
 ]
 
 export default function ServicesAndPricing() {
   return (
-    <div id="services-and-pricing" className="bg-tahiti-300 text-white">
+    <div id="services-and-pricing" className="bg-tahiti-400 text-white">
       <div className="mx-auto max-w-7xl py-24 px-6 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-center">
@@ -63,12 +61,13 @@ export default function ServicesAndPricing() {
               className="divide-y divide-gray-200 rounded-lg border border-gray-200 bg-white shadow-sm"
             >
               <div className="p-6">
-                <h2 className="text-lg font-medium leading-6 text-gray-900">
-                  {tier.name}
-                </h2>
+                <h2
+                  className="text-lg font-medium leading-6 text-gray-900"
+                  dangerouslySetInnerHTML={{ __html: tier.name }}
+                ></h2>
                 <p className="mt-4 text-sm text-gray-500">{tier.description}</p>
                 <p className="mt-8">
-                  <span className="text-4xl font-bold tracking-tight text-gray-900">
+                  <span className="text-4xl font-bold tracking-tight text-tahiti-900">
                     ${tier.price}
                   </span>{' '}
                 </p>
@@ -81,10 +80,10 @@ export default function ServicesAndPricing() {
                   {tier.includedFeatures.map((feature) => (
                     <li key={feature} className="flex space-x-3">
                       <CheckIcon
-                        className="h-5 w-5 flex-shrink-0 text-tahiti-500"
+                        className="h-5 w-5 flex-shrink-0 text-tahiti-700"
                         aria-hidden="true"
                       />
-                      <span className="text-sm text-gray-500">{feature}</span>
+                      <span className="text-sm text-gray-600">{feature}</span>
                     </li>
                   ))}
                 </ul>

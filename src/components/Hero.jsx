@@ -1,3 +1,4 @@
+// TODO hero image
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -58,7 +59,7 @@ export default function Hero() {
     <div className="relative bg-gray-50">
       <Popover className="relative bg-white shadow">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="flex items-center justify-between py-6 md:justify-start md:space-x-8">
+          <div className="flex items-center justify-between py-6 md:space-x-8 lg:justify-start">
             <div className="flex items-center justify-start">
               <a href="#" className="mr-8">
                 <span className="sr-only">Balanced Tax Solutions</span>
@@ -273,10 +274,10 @@ export default function Hero() {
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                 <a
-                  href="#"
+                  href="#contact-me"
                   className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-tahiti-600 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
                 >
-                  Contact Us
+                  Contact Me
                 </a>
               </div>
             </div>

@@ -1,9 +1,8 @@
-// TODO Finish links to social platforms
 const navigation = {
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://www.facebook.com/profile.php?id=100089468934018&mibextid=LQQJ4d',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -16,7 +15,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'http://instagram.com/balancedtax',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -40,6 +39,7 @@ export default function Footer() {
               key={item.name}
               href={item.href}
               className="text-gray-400 hover:text-gray-500"
+              target="_blank"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />

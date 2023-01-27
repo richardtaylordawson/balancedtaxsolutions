@@ -1,70 +1,30 @@
-import Image from 'next/image'
-
+// TODO need more testimonials
 import { Container } from '@/components/Container'
-import avatarImage1 from '@/images/avatars/avatar-1.png'
-import avatarImage2 from '@/images/avatars/avatar-2.png'
-import avatarImage3 from '@/images/avatars/avatar-3.png'
-import avatarImage4 from '@/images/avatars/avatar-4.png'
-import avatarImage5 from '@/images/avatars/avatar-5.png'
 
 const testimonials = [
   [
     {
       content:
-        'TaxPal is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'Switching from doing taxes via TurboTax to doing them with Kylee was the best choice I ever made. It is so much easier year after year now and she is so much more knowledgeable about all the tax breaks and adjustments we can make to get the biggest return possible',
       author: {
-        name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
-        image: avatarImage1,
-      },
-    },
-    {
-      content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
-      author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
+        name: 'Richard Dawson',
       },
     },
   ],
   [
     {
       content:
-        'The best part about TaxPal is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+        'I have been going to Kylee to get my taxes done for the last several years and I have been very impressed. Not only does she charge less than other people I’ve been to, she does an extremely thorough job to get you back as much money as possible. To top it all off she’s just a super cool person that you will enjoy spending time with while she saves you money. I would highly recommend going to Kylee for any tax needs. ',
       author: {
-        name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
-        image: avatarImage5,
-      },
-    },
-    {
-      content:
-        'There are so many things I had to do with my old software that I just don’t do at all with TaxPal. Suspicious but I can’t say I don’t love it.',
-      author: {
-        name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
-        image: avatarImage2,
+        name: 'Cade Kynaston',
       },
     },
   ],
   [
     {
-      content:
-        'I used to have to remit tax to the EU and with TaxPal I somehow don’t have to do that anymore. Nervous to travel there now though.',
+      content: 'Best ever!',
       author: {
-        name: 'Peter Renolds',
-        role: 'Founder of West Inc',
-        image: avatarImage3,
-      },
-    },
-    {
-      content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
-      author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
+        name: 'Mike Harvey',
       },
     },
   ],
@@ -88,11 +48,11 @@ export default function Testimonials() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Loved by our clients.
+            Loved by my clients.
           </h2>
           <p className="mt-4 text-lg tracking-tight">
-            We make it easy to get the best return possible and a fraction of
-            the cost to our competitors and self serving tax software.
+            I make it easy to get the best return possible and a fraction of the
+            cost to our competitors and self serving tax software.
           </p>
         </div>
         <ul
@@ -107,7 +67,7 @@ export default function Testimonials() {
                     <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-tahiti-900/10">
                       <QuoteIcon className="absolute top-6 left-6 fill-tahiti-100" />
                       <blockquote className="relative">
-                        <p className="text-lg tracking-tight text-tahiti-900">
+                        <p className="text-lg tracking-tight text-gray-900">
                           {testimonial.content}
                         </p>
                       </blockquote>
@@ -116,18 +76,6 @@ export default function Testimonials() {
                           <div className="text-base text-tahiti-900">
                             {testimonial.author.name}
                           </div>
-                          <div className="mt-1 text-sm text-tahiti-500">
-                            {testimonial.author.role}
-                          </div>
-                        </div>
-                        <div className="bg-tahiti-50 overflow-hidden rounded-full">
-                          <Image
-                            className="h-14 w-14 object-cover"
-                            src={testimonial.author.image}
-                            alt=""
-                            width={56}
-                            height={56}
-                          />
                         </div>
                       </figcaption>
                     </figure>

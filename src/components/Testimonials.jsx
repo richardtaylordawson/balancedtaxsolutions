@@ -1,30 +1,30 @@
 // TODO need more testimonials
-import { Container } from '@/components/Container'
+import { Container } from "@/components/Container"
 
 const testimonials = [
   [
     {
       content:
-        'Switching from doing taxes via TurboTax to doing them with Kylee was the best choice I ever made. It is so much easier year after year now and she is so much more knowledgeable about all the tax breaks and adjustments we can make to get the biggest return possible',
+        "Switching from doing taxes via TurboTax to doing them with Kylee was the best choice I ever made. It is so much easier year after year now and she is so much more knowledgeable about all the tax breaks and adjustments we can make to get the biggest return possible",
       author: {
-        name: 'Richard Dawson',
+        name: "Richard Dawson",
       },
     },
   ],
   [
     {
       content:
-        'I have been going to Kylee to get my taxes done for the last several years and I have been very impressed. Not only does she charge less than other people I’ve been to, she does an extremely thorough job to get you back as much money as possible. To top it all off she’s just a super cool person that you will enjoy spending time with while she saves you money. I would highly recommend going to Kylee for any tax needs. ',
+        "I have been going to Kylee to get my taxes done for the last several years and I have been very impressed. Not only does she charge less than other people I’ve been to, she does an extremely thorough job to get you back as much money as possible. To top it all off she’s just a super cool person that you will enjoy spending time with while she saves you money. I would highly recommend going to Kylee for any tax needs. ",
       author: {
-        name: 'Cade Kynaston',
+        name: "Cade Kynaston",
       },
     },
   ],
   [
     {
-      content: 'Best ever!',
+      content: "Best ever!",
       author: {
-        name: 'Mike Harvey',
+        name: "Mike Harvey",
       },
     },
   ],

@@ -1,13 +1,12 @@
-import Head from 'next/head'
+import Head from "next/head"
 
-import HeaderBanner from '@/components/HeaderBanner'
-import Hero from '@/components/Hero'
-import About from '@/components/About'
-import ServicesAndPricing from '@/components/ServicesAndPricing'
-import Testimonials from '@/components/Testimonials'
-import Faqs from '@/components/Faqs'
-import ContactMe from '@/components/ContactMe'
-import Footer from '@/components/Footer'
+import Hero from "@/components/Hero"
+import About from "@/components/About"
+import ServicesAndPricing from "@/components/ServicesAndPricing"
+import Testimonials from "@/components/Testimonials"
+import Faqs from "@/components/Faqs"
+import ContactMe from "@/components/ContactMe"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
@@ -16,11 +15,10 @@ export default function Home() {
         <title>Balanced Tax Solutions - Tax Made Easy</title>
         <meta
           name="description"
-          content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
+          content="Personalized tax preparation services that fit your individual and business needs."
         />
       </Head>
       <main>
-        {/* <HeaderBanner /> */}
         <Hero />
         <About />
         <ServicesAndPricing />

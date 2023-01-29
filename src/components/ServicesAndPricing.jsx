@@ -1,46 +1,46 @@
-// TODO Features for packages
-import { CheckIcon } from '@heroicons/react/20/solid'
+// TODO detail checklists for packages
+import { CheckIcon } from "@heroicons/react/20/solid"
 
 const tiers = [
   {
-    name: 'Personal<br/>&nbsp',
-    href: '#',
-    price: '75 - 200',
+    name: "Personal<br/>&nbsp",
+    href: "#",
+    price: "75 - 200",
     includedFeatures: [
-      'Potenti felis, in cras at at ligula nunc.',
-      'Orci neque eget pellentesque.',
+      "Potenti felis, in cras at at ligula nunc.",
+      "Orci neque eget pellentesque.",
     ],
   },
   {
-    name: 'Sole Proprietor<br/>(Schedule C)',
-    href: '#',
-    price: '150-275',
+    name: "Sole Proprietor<br/>(Schedule C)",
+    href: "#",
+    price: "150-275",
     includedFeatures: [
-      'Potenti felis, in cras at at ligula nunc. ',
-      'Orci neque eget pellentesque.',
-      'Donec mauris sit in eu tincidunt etiam.',
+      "Potenti felis, in cras at at ligula nunc. ",
+      "Orci neque eget pellentesque.",
+      "Donec mauris sit in eu tincidunt etiam.",
     ],
   },
   {
-    name: 'Partnership<br/>(Multimember LLC)',
-    href: '#',
+    name: "Partnership<br/>(Multimember LLC)",
+    href: "#",
     price: 300,
     includedFeatures: [
-      'Potenti felis, in cras at at ligula nunc. ',
-      'Orci neque eget pellentesque.',
-      'Donec mauris sit in eu tincidunt etiam.',
-      'Faucibus volutpat magna.',
+      "Potenti felis, in cras at at ligula nunc. ",
+      "Orci neque eget pellentesque.",
+      "Donec mauris sit in eu tincidunt etiam.",
+      "Faucibus volutpat magna.",
     ],
   },
   {
-    name: 'S-Corp<br/>&nbsp',
-    href: '#',
+    name: "S-Corp<br/>&nbsp",
+    href: "#",
     price: 350,
     includedFeatures: [
-      'Potenti felis, in cras at at ligula nunc. ',
-      'Orci neque eget pellentesque.',
-      'Donec mauris sit in eu tincidunt etiam.',
-      'Faucibus volutpat magna.',
+      "Potenti felis, in cras at at ligula nunc. ",
+      "Orci neque eget pellentesque.",
+      "Donec mauris sit in eu tincidunt etiam.",
+      "Faucibus volutpat magna.",
     ],
   },
 ]
@@ -69,7 +69,7 @@ export default function ServicesAndPricing() {
                 <p className="mt-8">
                   <span className="text-4xl font-bold tracking-tight text-tahiti-900">
                     ${tier.price}
-                  </span>{' '}
+                  </span>{" "}
                 </p>
               </div>
               <div className="px-6 pt-6 pb-8">

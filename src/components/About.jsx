@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Kylee from '@/images/kylee.png'
+import Image from "next/image"
+import Kylee from "@/images/kylee.png"
 
 export default function About() {
   return (

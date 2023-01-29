@@ -1,36 +1,36 @@
-import { useState } from 'react'
+import { useState } from "react"
 import {
   EnvelopeIcon,
   PhoneIcon,
   CheckIcon,
   ExclamationTriangleIcon,
-} from '@heroicons/react/24/outline'
+} from "@heroicons/react/24/outline"
 import {
   useNetlifyForm,
   NetlifyFormProvider,
   NetlifyFormComponent,
   Honeypot,
-} from 'react-netlify-forms'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import MaskedInput from 'react-text-mask'
-import Modal from './Modal'
+} from "react-netlify-forms"
+import { useFormik } from "formik"
+import * as Yup from "yup"
+import MaskedInput from "react-text-mask"
+import Modal from "./Modal"
 
 export default function ContactMe() {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [showErrorModal, setShowErrorModal] = useState(false)
 
   const phoneNumberMask = [
-    '(',
+    "(",
     /[1-9]/,
     /\d/,
     /\d/,
-    ')',
-    ' ',
+    ")",
+    " ",
     /\d/,
     /\d/,
     /\d/,
-    '-',
+    "-",
     /\d/,
     /\d/,
     /\d/,
@@ -40,20 +40,20 @@ export default function ContactMe() {
   const phoneRegExp = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name is required'),
-    lastName: Yup.string().required('Last name is required'),
-    email: Yup.string().required('Email is required').email('Email is invalid'),
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string().required("Email is required").email("Email is invalid"),
     phone: Yup.string()
-      .required('Phone is required')
-      .matches(phoneRegExp, 'Phone is not valid'),
-    subject: Yup.string().required('Subject is required'),
-    message: Yup.string().required('Message is required'),
+      .required("Phone is required")
+      .matches(phoneRegExp, "Phone is not valid"),
+    subject: Yup.string().required("Subject is required"),
+    message: Yup.string().required("Message is required"),
   })
 
   const netlify = useNetlifyForm({
-    name: 'Contact Me',
-    action: '/thanks',
-    honeypotName: 'bot-field',
+    name: "Contact Me",
+    action: "/thanks",
+    honeypotName: "bot-field",
     onSuccess: () => {
       setShowSuccessModal(true)
     },
@@ -64,17 +64,17 @@ export default function ContactMe() {
   const { handleSubmit, handleChange, handleBlur, touched, errors, values } =
     useFormik({
       initialValues: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       },
       validationSchema,
       onSubmit: (values, { resetForm }) => {
         netlify.handleSubmit(null, values)
-        resetForm({ values: '' })
+        resetForm({ values: "" })
       },
     })
 
@@ -305,7 +305,7 @@ export default function ContactMe() {
                       <Honeypot />
                       <div>
                         <label
-                          htmlFor="firstNam"
+                          htmlFor="firstName"
                           className="block text-sm font-medium text-gray-900"
                         >
                           First name <span className="text-red-500">*</span>
@@ -319,7 +319,7 @@ export default function ContactMe() {
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
                               touched.firstName &&
                               errors.firstName &&
-                              'border-red-500'
+                              "border-red-500"
                             }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -348,7 +348,7 @@ export default function ContactMe() {
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
                               touched.lastName &&
                               errors.lastName &&
-                              'border-red-500'
+                              "border-red-500"
                             }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -375,7 +375,7 @@ export default function ContactMe() {
                             type="email"
                             autoComplete="email"
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
-                              touched.email && errors.email && 'border-red-500'
+                              touched.email && errors.email && "border-red-500"
                             }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -404,7 +404,7 @@ export default function ContactMe() {
                             id="phone"
                             autoComplete="tel"
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
-                              touched.phone && errors.phone && 'border-red-500'
+                              touched.phone && errors.phone && "border-red-500"
                             }`}
                             aria-describedby="phone"
                             mask={phoneNumberMask}
@@ -434,7 +434,7 @@ export default function ContactMe() {
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
                               touched.subject &&
                               errors.subject &&
-                              'border-red-500'
+                              "border-red-500"
                             }`}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -464,7 +464,7 @@ export default function ContactMe() {
                             className={`block w-full rounded-md border-gray-300 py-3 px-4 text-gray-900 shadow-sm focus:border-tahiti-500 focus:ring-tahiti-500 ${
                               touched.message &&
                               errors.message &&
-                              'border-red-500'
+                              "border-red-500"
                             }`}
                             aria-describedby="message"
                             onChange={handleChange}

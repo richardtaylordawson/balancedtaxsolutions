@@ -1,57 +1,57 @@
 // TODO hero image
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { Fragment } from "react"
+import { Popover, Transition } from "@headlessui/react"
 import {
   Bars3Icon,
   BookmarkSquareIcon,
   XMarkIcon,
   QuestionMarkCircleIcon,
-} from '@heroicons/react/24/outline'
-import { ChevronDownIcon } from '@heroicons/react/20/solid'
-import Logo from '@/images/logo-reverse.png'
-import Image from 'next/image'
+} from "@heroicons/react/24/outline"
+import { ChevronDownIcon } from "@heroicons/react/20/solid"
+import Logo from "@/images/logo-reverse.png"
+import Image from "next/image"
 
 const navigation = [
   {
-    name: 'About Me',
-    href: 'about-me',
+    name: "About Me",
+    href: "about-me",
   },
   {
-    name: 'Services & Pricing',
-    href: '#services-and-pricing',
+    name: "Services & Pricing",
+    href: "#services-and-pricing",
   },
   {
-    name: 'Testimonials',
-    href: '#testimonials',
+    name: "Testimonials",
+    href: "#testimonials",
   },
   {
-    name: 'FAQs',
-    href: '#faqs',
+    name: "FAQs",
+    href: "#faqs",
   },
   {
-    name: 'Contact Me',
-    href: '#contact-me',
+    name: "Contact Me",
+    href: "#contact-me",
   },
 ]
 
 const resources = [
   {
     name: "Where's My Refund?",
-    description: 'Check the current status of your refund.',
-    href: '#',
+    description: "Check the current status of your refund.",
+    href: "https://www.irs.gov/refunds",
     icon: QuestionMarkCircleIcon,
   },
   {
-    name: 'Organizers',
+    name: "Organizers",
     description:
-      'Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website',
-    href: '#',
+      "Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website",
+    href: "#",
     icon: BookmarkSquareIcon,
   },
 ]
 
 const classNames = (...classes) => {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ")
 }
 
 export default function Hero() {
@@ -81,15 +81,15 @@ export default function Hero() {
                     <>
                       <Popover.Button
                         className={classNames(
-                          open ? 'text-gray-900' : 'text-gray-500',
-                          'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2'
+                          open ? "text-gray-900" : "text-gray-500",
+                          "group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2"
                         )}
                       >
                         <span>Tools</span>
                         <ChevronDownIcon
                           className={classNames(
-                            open ? 'text-gray-600' : 'text-gray-400',
-                            'ml-2 h-5 w-5 group-hover:text-gray-500'
+                            open ? "text-gray-600" : "text-gray-400",
+                            "ml-2 h-5 w-5 group-hover:text-gray-500"
                           )}
                           aria-hidden="true"
                         />
@@ -112,6 +112,7 @@ export default function Hero() {
                                   key={item.name}
                                   href={item.href}
                                   className="-m-3 flex items-start rounded-lg p-3 hover:bg-gray-50"
+                                  target="_blank"
                                 >
                                   <item.icon
                                     className="h-6 w-6 flex-shrink-0 text-tahiti-600"
@@ -253,7 +254,7 @@ export default function Hero() {
         <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block xl:inline">Simplified Taxes.</span>{' '}
+              <span className="block xl:inline">Simplified Taxes.</span>{" "}
               <span className="block text-tahiti-600 xl:inline">
                 Affordable Prices.
               </span>

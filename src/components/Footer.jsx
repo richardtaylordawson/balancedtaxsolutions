@@ -1,8 +1,8 @@
 const navigation = {
   social: [
     {
-      name: 'Facebook',
-      href: 'https://www.facebook.com/profile.php?id=100089468934018&mibextid=LQQJ4d',
+      name: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=100089468934018&mibextid=LQQJ4d",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -14,8 +14,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: 'http://instagram.com/balancedtax',
+      name: "Instagram",
+      href: "http://instagram.com/balancedtax",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path

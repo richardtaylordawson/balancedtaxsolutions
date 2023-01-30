@@ -37,7 +37,7 @@ const faqs = [
 
 export default function Faqs() {
   return (
-    <div id="faqs" className="bg-white">
+    <div id="faqs" className="bg-white" style={{ scrollMarginTop: "113px" }}>
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-24 lg:py-24 lg:px-8">
         <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
           <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">

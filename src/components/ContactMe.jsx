@@ -105,7 +105,11 @@ export default function ContactMe() {
           </div>
         }
       />
-      <div id="contact-me" className="bg-gray-100">
+      <div
+        id="contact-me"
+        className="bg-gray-100"
+        style={{ scrollMarginTop: "113px" }}
+      >
         <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
           <div className="relative bg-white shadow-xl">
             <h2 className="sr-only">Contact Me</h2>

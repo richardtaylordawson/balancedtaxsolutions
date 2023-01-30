@@ -65,6 +65,7 @@ export default function Testimonials() {
       id="testimonials"
       aria-label="What our customers are saying"
       className="bg-gray-100 py-20 sm:py-32"
+      style={{ scrollMarginTop: "113px" }}
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">

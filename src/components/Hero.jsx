@@ -206,7 +206,9 @@ export default function Hero({ notFound }) {
                       className="text-base font-medium text-gray-900 hover:text-gray-700"
                       key={index}
                     >
-                      {current.name}
+                      <Popover.Button className="text-base font-medium text-gray-900 hover:text-gray-700">
+                        {current.name}
+                      </Popover.Button>
                     </a>
                   ))}
                 </div>

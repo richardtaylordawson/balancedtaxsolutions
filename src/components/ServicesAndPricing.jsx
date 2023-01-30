@@ -38,7 +38,11 @@ const tiers = [
 
 export default function ServicesAndPricing() {
   return (
-    <div id="services-and-pricing" className="bg-tahiti-600 text-white">
+    <div
+      id="services-and-pricing"
+      className="bg-tahiti-600 text-white"
+      style={{ scrollMarginTop: "113px" }}
+    >
       <div className="mx-auto max-w-7xl py-24 px-6 lg:px-8">
         <div className="sm:align-center sm:flex sm:flex-col">
           <h1 className="text-5xl font-bold tracking-tight text-white sm:text-center">

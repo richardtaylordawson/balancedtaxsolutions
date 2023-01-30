@@ -3,7 +3,11 @@ import Kylee from "@/images/kylee.png"
 
 export default function AboutMe() {
   return (
-    <div id="about-me" className="overflow-hidden bg-white py-24 sm:py-32">
+    <div
+      id="about-me"
+      className="overflow-hidden bg-white py-24 sm:py-32"
+      style={{ scrollMarginTop: "113px" }}
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <Image

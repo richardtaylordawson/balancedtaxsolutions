@@ -47,10 +47,16 @@ export default function Hero({ notFound }) {
       icon: QuestionMarkCircleIcon,
     },
     {
-      name: "Organizers",
+      name: "Organizers - New Clients",
       description:
-        "Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website",
-      href: "#",
+        "If you are a new client that has not previously filed your returns with me, Get prepared for your appointment by following the instructions in this document.",
+      href: "/documents/tax_organizer.pdf",
+      icon: BookmarkSquareIcon,
+    },
+    {
+      name: "Organizers - Existing Clients",
+      description:
+        "Feel free to send me a text or email asking for the emailed link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
       icon: BookmarkSquareIcon,
     },
   ]
@@ -69,7 +75,7 @@ export default function Hero({ notFound }) {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-6 md:space-x-8 lg:justify-start">
             <div className="flex items-center justify-start">
-              <a href="/" className="mr-8">
+              <a href="/" style={{ marginRight: "1.5rem" }}>
                 <span className="sr-only">Balanced Tax Solutions</span>
                 <Image className="" src={Logo} alt="" width={75} />
               </a>
@@ -112,7 +118,10 @@ export default function Hero({ notFound }) {
                         leaveFrom="opacity-100 trantahiti-y-0"
                         leaveTo="opacity-0 trantahiti-y-1"
                       >
-                        <Popover.Panel className="-trantahiti-x-1/2 absolute left-1/2 z-10 mt-3 w-screen max-w-md transform px-2 sm:px-0">
+                        <Popover.Panel
+                          className="-trantahiti-x-1/2 absolute left-1/2 z-10 mt-3 w-screen max-w-md transform px-2 sm:px-0"
+                          style={{ left: "-180px" }}
+                        >
                           <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                             <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                               {resources.map((item) => (

@@ -4,7 +4,6 @@ import { CheckIcon } from "@heroicons/react/20/solid"
 const tiers = [
   {
     name: "Personal<br/>&nbsp",
-    href: "#",
     price: "75 - 200",
     includedFeatures: [
       "Potenti felis, in cras at at ligula nunc.",
@@ -13,7 +12,6 @@ const tiers = [
   },
   {
     name: "Sole Proprietor<br/>(Schedule C)",
-    href: "#",
     price: "150-275",
     includedFeatures: [
       "Potenti felis, in cras at at ligula nunc. ",
@@ -23,7 +21,6 @@ const tiers = [
   },
   {
     name: "Partnership<br/>(Multimember LLC)",
-    href: "#",
     price: 300,
     includedFeatures: [
       "Potenti felis, in cras at at ligula nunc. ",
@@ -34,7 +31,6 @@ const tiers = [
   },
   {
     name: "S-Corp<br/>&nbsp",
-    href: "#",
     price: 350,
     includedFeatures: [
       "Potenti felis, in cras at at ligula nunc. ",

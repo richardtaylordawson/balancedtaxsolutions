@@ -4,7 +4,12 @@ import { Dialog, Transition } from "@headlessui/react"
 export default function Modal({ heading, message, showModal, onClose, icon }) {
   return (
     <Transition.Root show={showModal} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog
+        as="div"
+        className="relative z-10"
+        style={{ zIndex: "9999999" }}
+        onClose={onClose}
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"

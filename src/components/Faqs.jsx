@@ -1,4 +1,3 @@
-// TODO add in documents link for new clients
 import { Disclosure } from "@headlessui/react"
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline"
 
@@ -26,7 +25,7 @@ const faqs = [
     id: 4,
     question: "What do I need for my appointment?",
     answer:
-      "If you are a new client that has not previously filed your returns with me, please fill out the <a class='text-tahiti-800 hover:text-tahiti-600' href='TODO'>following</a>. For existing clients, feel free to send me a text or email asking for the emailed Link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
+      "If you are a new client that has not previously filed your returns with me, please fill out the <a class='text-tahiti-800 hover:text-tahiti-600' href='/documents/tax_organizer.pdf'>following</a>. For existing clients, feel free to send me a text or email asking for the emailed link that lists pertinent forms based on prior years' returns. It's always safe to bring any documents you think you'll need - better to have it and not need it than need it and not have it!",
   },
   {
     id: 5,

@@ -18,6 +18,15 @@ export default function Home() {
           content="Personalized tax preparation services that fit your individual and business needs."
         />
       </Head>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-KNP85N8M2P"
+      ></script>
+      <script>
+        window.dataLayer = window.dataLayer || []; function gtag()
+        {dataLayer.push(arguments)}
+        gtag('js', new Date()); gtag('config', 'G-KNP85N8M2P');
+      </script>
       <main>
         <Hero />
         <About />

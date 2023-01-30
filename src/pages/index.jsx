@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Script from "next/script"
 
 import Hero from "@/components/Hero"
 import About from "@/components/About"
@@ -18,15 +19,24 @@ export default function Home() {
           content="Personalized tax preparation services that fit your individual and business needs."
         />
       </Head>
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=G-KNP85N8M2P"
-      ></script>
-      <script>
-        window.dataLayer = window.dataLayer || []; function gtag()
-        {dataLayer.push(arguments)}
-        gtag('js', new Date()); gtag('config', 'G-KNP85N8M2P');
-      </script>
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=KNP85N8M2P`}
+      />
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-KNP85N8M2P', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <main>
         <Hero />
         <About />

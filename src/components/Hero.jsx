@@ -49,7 +49,7 @@ export default function Hero({ notFound }) {
     {
       name: "Organizers - New Clients",
       description:
-        "If you are a new client that has not previously filed your returns with me, Get prepared for your appointment by following the instructions in this document.",
+        "If you are a new client that has not previously filed your returns with me, get prepared for your appointment by following the instructions in this document.",
       href: "/documents/tax_organizer.pdf",
       icon: BookmarkSquareIcon,
     },
@@ -162,7 +162,7 @@ export default function Hero({ notFound }) {
             </div>
             <div className="hidden items-center justify-end lg:flex lg:w-0 lg:flex-1">
               <a
-                href="#"
+                href="https://calendly.com/kylee-22"
                 className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-tahiti-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-tahiti-700"
               >
                 Book Appointment
@@ -320,7 +320,7 @@ export default function Hero({ notFound }) {
                 <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <a
-                      href="#"
+                      href="https://calendly.com/kylee-22"
                       className="flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-8 py-3 text-base font-medium text-white hover:bg-tahiti-700 md:py-4 md:px-10 md:text-lg"
                     >
                       Book Appointment

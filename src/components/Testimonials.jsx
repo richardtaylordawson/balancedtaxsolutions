@@ -27,9 +27,9 @@ const testimonials = [
     },
     {
       content:
-        "Use Kylee over doing it yourself. You will not regret it! I promise!",
+        "The best service EVER. I actually look forward to having my taxes done each year by Kylee 😅",
       author: {
-        name: "Liz Olson",
+        name: "Sarah Hammon",
       },
     },
   ],

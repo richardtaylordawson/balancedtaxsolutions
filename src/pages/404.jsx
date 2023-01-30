@@ -7,14 +7,6 @@ import Footer from "@/components/Footer"
 export default function NotFound() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full">
-        <body class="h-full">
-        ```
-      */}
       <Head>
         <title>Balanced Tax Solutions - Not Found</title>
         <meta name="description" content="Page not found" />

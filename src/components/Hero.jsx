@@ -11,57 +11,65 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import Logo from "@/images/logo-reverse.png"
 import Image from "next/image"
 
-const navigation = [
-  {
-    name: "About Me",
-    href: "about-me",
-  },
-  {
-    name: "Services & Pricing",
-    href: "#services-and-pricing",
-  },
-  {
-    name: "Testimonials",
-    href: "#testimonials",
-  },
-  {
-    name: "FAQs",
-    href: "#faqs",
-  },
-  {
-    name: "Contact Me",
-    href: "#contact-me",
-  },
-]
-
-const resources = [
-  {
-    name: "Where's My Refund?",
-    description: "Check the current status of your refund.",
-    href: "https://www.irs.gov/refunds",
-    icon: QuestionMarkCircleIcon,
-  },
-  {
-    name: "Organizers",
-    description:
-      "Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website",
-    href: "#",
-    icon: BookmarkSquareIcon,
-  },
-]
-
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ")
 }
 
-export default function Hero() {
+export default function Hero({ notFound }) {
+  const navigation = [
+    {
+      name: "About Me",
+      href: "/#about-me",
+    },
+    {
+      name: "Services & Pricing",
+      href: "/#services-and-pricing",
+    },
+    {
+      name: "Testimonials",
+      href: "/#testimonials",
+    },
+    {
+      name: "FAQs",
+      href: "/#faqs",
+    },
+    {
+      name: "Contact Me",
+      href: "/#contact-me",
+    },
+  ]
+
+  const resources = [
+    {
+      name: "Where's My Refund?",
+      description: "Check the current status of your refund.",
+      href: "https://www.irs.gov/refunds",
+      icon: QuestionMarkCircleIcon,
+    },
+    {
+      name: "Organizers",
+      description:
+        "Get prepared for your appointment by following these instructions. for existing clients, I want to send them the intuit link which I have to manually do from my tax software...but it lists specific employers and specific things that they had the prior year...so this will just be for new clients. not sure if we need to denote that or how to do so, but at least this exists for new people which is the whole point of the website",
+      href: "#",
+      icon: BookmarkSquareIcon,
+    },
+  ]
+
   return (
     <div className="relative bg-gray-50">
-      <Popover className="relative bg-white shadow">
+      <Popover
+        className="relative bg-white shadow"
+        style={{
+          position: "fixed",
+          width: "100%",
+          top: "0",
+          zIndex: "9999999",
+        }}
+      >
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex items-center justify-between py-6 md:space-x-8 lg:justify-start">
             <div className="flex items-center justify-start">
-              <a href="#" className="mr-8">
+              <a href="/" className="mr-8">
                 <span className="sr-only">Balanced Tax Solutions</span>
                 <Image className="" src={Logo} alt="" width={75} />
               </a>
@@ -223,74 +231,112 @@ export default function Hero() {
         </Transition>
       </Popover>
 
-      <main className="lg:relative">
-        <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-          <svg
-            className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-            viewBox="0 0 1155 678"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
-              fillOpacity=".3"
-              d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-            />
-            <defs>
-              <linearGradient
-                id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
-                x1="1155.49"
-                x2="-78.208"
-                y1=".177"
-                y2="474.645"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#9089FC"></stop>
-                <stop offset="1" stopColor="#FF80B5"></stop>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-        <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
-          <div className="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block xl:inline">Simplified Taxes.</span>{" "}
-              <span className="block text-tahiti-600 xl:inline">
-                Affordable Prices.
-              </span>
-            </h1>
-            <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-              Personalized tax preparation services that fit your
-              <br />
-              individual and business needs.
-            </p>
-            <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
-              <div className="rounded-md shadow">
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-8 py-3 text-base font-medium text-white hover:bg-tahiti-700 md:py-4 md:px-10 md:text-lg"
-                >
-                  Book Appointment
-                </a>
-              </div>
-              <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                <a
-                  href="#contact-me"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-tahiti-600 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
-                >
-                  Contact Me
-                </a>
-              </div>
+      <main
+        className="lg:relative"
+        style={{
+          marginTop: "113px",
+        }}
+      >
+        {notFound && (
+          <div className="min-h-full bg-white py-16 px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
+            <div className="mx-auto max-w-max">
+              <main className="sm:flex">
+                <p className="text-4xl font-bold tracking-tight text-tahiti-600 sm:text-5xl">
+                  404
+                </p>
+                <div className="sm:ml-6">
+                  <div className="sm:border-l sm:border-gray-200 sm:pl-6">
+                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                      Page not found
+                    </h1>
+                    <p className="mt-1 text-base text-gray-500">
+                      Please check the URL in the address bar and try again.
+                    </p>
+                  </div>
+                  <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+                    <a
+                      href="/"
+                      className="inline-flex items-center rounded-md border border-transparent bg-tahiti-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-tahiti-700 focus:outline-none focus:ring-2 focus:ring-tahiti-500 focus:ring-offset-2"
+                    >
+                      Go Back Home
+                    </a>
+                  </div>
+                </div>
+              </main>
             </div>
           </div>
-        </div>
-        <div className="relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
-          <img
-            className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
-            alt=""
-          />
-        </div>
+        )}
+        {!notFound && (
+          <>
+            <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+              <svg
+                className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
+                viewBox="0 0 1155 678"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
+                  fillOpacity=".3"
+                  d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+                />
+                <defs>
+                  <linearGradient
+                    id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
+                    x1="1155.49"
+                    x2="-78.208"
+                    y1=".177"
+                    y2="474.645"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#9089FC"></stop>
+                    <stop offset="1" stopColor="#FF80B5"></stop>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div className="mx-auto w-full max-w-7xl pt-16 pb-20 text-center lg:py-48 lg:text-left">
+              <div className="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+                  <span className="block xl:inline">Simplified Taxes.</span>{" "}
+                  <span className="block text-tahiti-600 xl:inline">
+                    Affordable Prices.
+                  </span>
+                </h1>
+                <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
+                  Personalized tax preparation services that fit your
+                  <br />
+                  individual and business needs.
+                </p>
+                <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
+                  <div className="rounded-md shadow">
+                    <a
+                      href="#"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-tahiti-600 px-8 py-3 text-base font-medium text-white hover:bg-tahiti-700 md:py-4 md:px-10 md:text-lg"
+                    >
+                      Book Appointment
+                    </a>
+                  </div>
+                  <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+                    <a
+                      href="#contact-me"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-tahiti-600 hover:bg-gray-50 md:py-4 md:px-10 md:text-lg"
+                    >
+                      Contact Me
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative h-64 w-full sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2">
+              <img
+                className="absolute inset-0 h-full w-full object-cover"
+                src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
+                alt=""
+              />
+            </div>
+          </>
+        )}
       </main>
     </div>
   )

@@ -1,11 +1,17 @@
-// TODO need more testimonials
 import { Container } from "@/components/Container"
 
 const testimonials = [
   [
     {
       content:
-        "Switching from doing taxes via TurboTax to doing them with Kylee was the best choice I ever made. It is so much easier year after year now and she is so much more knowledgeable about all the tax breaks and adjustments we can make to get the biggest return possible",
+        "Working with Balanced Tax was a fantastic experience. Kylee made doing our taxes easy and straightforward and we were able to save way more than when I had been doing it myself. The whole staff was so friendly and helpful. Can’t wait to work with them again next year! Thank you Balanced Tax!",
+      author: {
+        name: "Isaac Olson",
+      },
+    },
+    {
+      content:
+        "Switching from doing taxes via TurboTax to doing them with Kylee was the best choice I ever made. It is so much easier year after year now and she is so much more knowledgeable about all the tax breaks and adjustments we can make to get the biggest return possible.",
       author: {
         name: "Richard Dawson",
       },
@@ -19,12 +25,27 @@ const testimonials = [
         name: "Cade Kynaston",
       },
     },
+    {
+      content:
+        "Use Kylee over doing it yourself. You will not regret it! I promise!",
+      author: {
+        name: "Liz Olson",
+      },
+    },
   ],
   [
     {
-      content: "Best ever!",
+      content:
+        "I worked with Kylee for 5 years she did an amazing job doing my taxes! She is honest fair and a wonderful young lady to have on your side. I highly recommend her for any of your tax needs 😊",
       author: {
-        name: "Mike Harvey",
+        name: "Darrell Koplin",
+      },
+    },
+    {
+      content:
+        "I was a huge fan of turbo tax.  Kylee saved me over $1500 vs turbo tax. The tax software balanced tax uses is far superior to turbo tax.  Add in the fact that Kylee is a seasoned tax professional, she maximizes my return and reduces my tax liability every year. I 100% recommend Balanced Tax for your individual, professional or business tax needs.",
+      author: {
+        name: "Dave Peterson",
       },
     },
   ],

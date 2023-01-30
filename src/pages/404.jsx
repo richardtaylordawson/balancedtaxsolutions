@@ -2,22 +2,22 @@ import Head from "next/head"
 import Script from "next/script"
 
 import Hero from "@/components/Hero"
-import AboutMe from "@/components/AboutMe"
-import ServicesAndPricing from "@/components/ServicesAndPricing"
-import Testimonials from "@/components/Testimonials"
-import Faqs from "@/components/Faqs"
-import ContactMe from "@/components/ContactMe"
 import Footer from "@/components/Footer"
 
-export default function Home() {
+export default function NotFound() {
   return (
     <>
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full">
+        <body class="h-full">
+        ```
+      */}
       <Head>
-        <title>Balanced Tax Solutions - Tax Made Easy</title>
-        <meta
-          name="description"
-          content="Personalized tax preparation services that fit your individual and business needs."
-        />
+        <title>Balanced Tax Solutions - Not Found</title>
+        <meta name="description" content="Page not found" />
       </Head>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
@@ -38,12 +38,7 @@ export default function Home() {
         }}
       />
       <main>
-        <Hero />
-        <AboutMe />
-        <ServicesAndPricing />
-        <Testimonials />
-        <Faqs />
-        <ContactMe />
+        <Hero notFound />
       </main>
       <Footer />
     </>

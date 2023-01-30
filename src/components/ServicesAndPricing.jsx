@@ -6,37 +6,32 @@ const tiers = [
     name: "Personal<br/>&nbsp",
     price: "75 - 200",
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc.",
-      "Orci neque eget pellentesque.",
+      "Price varies depending on which forms are required",
+      "W-2's, investment 1099's, child tax credits, earned income credits, itemized deductions",
     ],
   },
   {
     name: "Sole Proprietor<br/>(Schedule C)",
     price: "150-275",
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc. ",
-      "Orci neque eget pellentesque.",
-      "Donec mauris sit in eu tincidunt etiam.",
+      "Includes all items listed under the personal return",
+      "Full schedule C for sole proprietor/single member LLC business return including maximizing deductions and tax strategy planning",
     ],
   },
   {
     name: "Partnership<br/>(Multimember LLC)",
     price: 300,
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc. ",
-      "Orci neque eget pellentesque.",
-      "Donec mauris sit in eu tincidunt etiam.",
-      "Faucibus volutpat magna.",
+      "1065 partnership tax return including maximizing deductions and tax strategy planning",
+      "K-1 preparation for each partner",
     ],
   },
   {
     name: "S-Corp<br/>&nbsp",
     price: 350,
     includedFeatures: [
-      "Potenti felis, in cras at at ligula nunc. ",
-      "Orci neque eget pellentesque.",
-      "Donec mauris sit in eu tincidunt etiam.",
-      "Faucibus volutpat magna.",
+      "1120S corporation tax return including maximizing deductions and tax strategy planning ",
+      "K-1 preparation for each shareholder",
     ],
   },
 ]

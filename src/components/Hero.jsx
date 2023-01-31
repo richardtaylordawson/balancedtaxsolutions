@@ -10,7 +10,7 @@ import {
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import Logo from "@/images/logo-reverse.png"
 import Image from "next/image"
-import KyleeHero from "@/images/kylee-hero.jpg"
+import KyleeHero from "@/images/hero-kylee.jpg"
 
 const classNames = (...classes) => {
   return classes.filter(Boolean).join(" ")

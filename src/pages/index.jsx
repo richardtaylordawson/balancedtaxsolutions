@@ -60,6 +60,10 @@ export default function Home() {
         <meta property="og:image:width" content="640" />
         <meta property="og:image:height" content="320" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="google-site-verification"
+          content="N4rlsC64_vn7afhnbp2yrvI_ZEent5C_LAfI3f9iJZo"
+        />
       </Head>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script

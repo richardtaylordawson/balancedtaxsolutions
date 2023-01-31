@@ -1,4 +1,3 @@
-// TODO hero image
 import { Fragment } from "react"
 import { Popover, Transition } from "@headlessui/react"
 import {

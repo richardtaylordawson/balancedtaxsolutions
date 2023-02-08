@@ -26,7 +26,7 @@ export default function Home() {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Balanced Tax Solutions" />
         <meta property="og:site_name" content="Balanced Tax Solutions" />
-        <meta itemprop="name" content="Balanced Tax Solutions" />
+        <meta itemProp="name" content="Balanced Tax Solutions" />
         <meta name="twitter:title" content="Balanced Tax Solutions" />
         <meta name="twitter:text:title" content="Balanced Tax Solutions" />
         <meta name="twitter:image:alt" content="Balanced Tax Solutions" />
@@ -35,7 +35,7 @@ export default function Home() {
           content="Personalized tax preparation services that fit your individual and business needs."
         />
         <meta
-          itemprop="description"
+          itemProp="description"
           content="Personalized tax preparation services that fit your individual and business needs."
         />
         <meta
@@ -49,7 +49,7 @@ export default function Home() {
           content="https://balancedtaxsolutions.com/images/kylee-hero.jpg"
         />
         <meta
-          itemprop="image"
+          itemProp="image"
           content="https://balancedtaxsolutions.com/images/kylee-hero.jpg"
         />
         <meta

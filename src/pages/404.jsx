@@ -18,12 +18,12 @@ export default function NotFound() {
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Balanced Tax Solutions" />
         <meta property="og:site_name" content="Balanced Tax Solutions" />
-        <meta itemprop="name" content="Balanced Tax Solutions" />
+        <meta itemProp="name" content="Balanced Tax Solutions" />
         <meta name="twitter:title" content="Balanced Tax Solutions" />
         <meta name="twitter:text:title" content="Balanced Tax Solutions" />
         <meta name="twitter:image:alt" content="Balanced Tax Solutions" />
         <meta property="og:description" content="Page not found" />
-        <meta itemprop="description" content="Page not found" />
+        <meta itemProp="description" content="Page not found" />
         <meta name="twitter:description" content="Page not found" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://balancedtaxsolutions.com/" />
@@ -32,7 +32,7 @@ export default function NotFound() {
           content="https://balancedtaxsolutions.com/images/kylee-hero.jpg"
         />
         <meta
-          itemprop="image"
+          itemProp="image"
           content="https://balancedtaxsolutions.com/images/kylee-hero.jpg"
         />
         <meta

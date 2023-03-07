@@ -47,10 +47,17 @@ export default function Hero({ notFound }) {
       icon: QuestionMarkCircleIcon,
     },
     {
-      name: "Organizers - New Clients",
+      name: "Organizers - New Clients (Personal)",
       description:
         "If you are a new client that has not previously filed your returns with me, get prepared for your appointment by following the instructions in this document.",
       href: "/documents/tax_organizer.pdf",
+      icon: BookmarkSquareIcon,
+    },
+    {
+      name: "Organizers - New Clients (Business)",
+      description:
+        "New business client? Get ready for your business tax appointment by following the instructions here.",
+      href: "/documents/business_tax_organizer.pdf",
       icon: BookmarkSquareIcon,
     },
     {

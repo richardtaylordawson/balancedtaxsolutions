@@ -47,16 +47,16 @@ export default function Hero({ notFound }) {
       icon: QuestionMarkCircleIcon,
     },
     {
-      name: "Organizers - New Clients (Personal)",
+      name: "Organizers - New Clients",
       description:
         "If you are a new client that has not previously filed your returns with me, get prepared for your appointment by following the instructions in this document.",
       href: "/documents/tax_organizer.pdf",
       icon: BookmarkSquareIcon,
     },
     {
-      name: "Organizers - New Clients (Business)",
+      name: "Organizers - Businesses",
       description:
-        "New business client? Get ready for your business tax appointment by following the instructions here.",
+        "Get ready for your business tax appointment using this to categorize income and deductions using this form",
       href: "/documents/business_tax_organizer.pdf",
       icon: BookmarkSquareIcon,
     },
@@ -235,9 +235,6 @@ export default function Hero({ notFound }) {
                       <div className="ml-4">
                         <p className="text-base font-medium text-gray-900">
                           {item.name}
-                        </p>
-                        <p className="mt-1 text-sm text-gray-500">
-                          {item.description}
                         </p>
                       </div>
                     </a>

@@ -22,6 +22,7 @@ export default function Home() {
           name="keywords"
           content="taxes, irs, tax made easy, simple, business, small business"
         />
+        <meta name="google-site-verification" content="X0DPUq-Uu-iPbPNu4kKmMbmVKnPZ0-94utnEz4Kzuc4" />
         <meta name="author" content="Richard Taylor Dawson" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Balanced Tax Solutions" />
